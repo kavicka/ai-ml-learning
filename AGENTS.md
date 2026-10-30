@@ -40,7 +40,7 @@ Links between steps (e.g. to a Racing Lab chapter) are absolute GitHub URLs, nev
 - Lint/format with `ruff` (`uv run ruff check . && uv run ruff format .`).
 
 ## Adding a new step
-1. Create `NN-short-name/` with the next two-digit number and `uv init --python 3.12` inside it. It becomes its own private repo `kavicka/NN-short-name` (one commit per finished piece of work, pushed when done).
+1. Create `NN-short-name/` with the next two-digit number, from the template repo `kavicka/ml-project-template` (README EN/SK skeleton, uv + ruff, Makefile, CI) or with `uv init --python 3.12`. It becomes its own private repo `kavicka/NN-short-name` (one commit per finished piece of work, pushed when done).
 2. Keep measurement and presentation separate: scripts write raw numbers to `results.json`, a plotting script turns them into PNGs in `assets/`.
 3. Write `README.md` (English) and `README.sk.md` (Slovak) with the same content, each linking to the other on the first line under the title (`🇸🇰 [Slovenská verzia](README.sk.md)` / `🇬🇧 [English version](README.md)`).
 4. Add a row to the project table in both index READMEs of `kavicka/ai-ml-learning` (`README.md` and `README.sk.md`).
