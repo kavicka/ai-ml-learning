@@ -12,6 +12,7 @@ Moja cesta od základov ML po AI engineering. **Tento repozitár je len rozcestn
 | 04 | [P1: Autograd od nuly a makemore](https://github.com/kavicka/04-autograd-makemore/blob/main/README.sk.md) | Vlastný autograd engine testovaný proti PyTorch, MLP nad ním, znakový model pre názvy obcí SR (val NLL 2,46 bigram → 1,95 MLP) | ✅ |
 | 05 | [Racing Lab: autíčka, ktoré sa učia jazdiť](https://github.com/kavicka/05-racing-lab/blob/main/README.sk.md) | Pretekárske laboratórium v pygame, ktoré rastie s roadmapou: každý vhodný krok má kapitolu na autíčkach (kap. 01–04 a 06 hotové); ostatné kroky majú vlastný vizuálny príklad | ✅ kap. 01–04, 06 |
 | 06 | [Pravdepodobnosť, Bayes a ROC vs PR](https://github.com/kavicka/06-probability-bayes-roc/blob/main/README.sk.md) | Rozptyl priemeru ~1/n, Bayes pri 1 % chorých (pozitívny test → 16,7 %), ten istý model má ROC-AUC 0,92 pri 50 % aj 0,1 % pozitívnych, pritom precision padne z 87 % na 0,6 % | ✅ |
+| 07 | [Tabulárne ML: odchod zákazníkov (P2)](https://github.com/kavicka/07-churn-tabular-ml/blob/main/README.sk.md) | Telco churn: vyladený LightGBM PR-AUC 0,664 vs 0,265 naivný, leakage z oversamplingu (CV 0,89 vs reálne 0,64), prah z nákladov zachytí 68 % odchádzajúcich za 118 € vs 133 € na zákazníka, FastAPI endpoint | ✅ |
 
 ## Roadmapa
 1. **Setup a matematika** – prostredie, derivácie, lineárna algebra
