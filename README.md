@@ -18,6 +18,7 @@ My path from ML fundamentals to AI engineering. **This repo is only the index.**
 | 10 | [Norms & cosine similarity](https://github.com/kavicka/10-norms-cosine-similarity) | Math before P6: on unit vectors dot = cosine = L2 ranking (100 % identical top-10), raw dot prefers long documents, bge-m3 vectors have norm 1.0000 | ✅ |
 | 11 | [P3: Image classifier in PyTorch](https://github.com/kavicka/11-image-classifier-pytorch) | Own training loop on MPS: ResNet-20 from scratch on CIFAR-10 (91.35 % vs 40.04 % linear), transfer learning on 10 Food-101 classes (94.76 % vs 75.08 % from scratch), 37 MLflow runs, Grad-CAM, ONNX | ✅ |
 | 12 | [P4: GPT from scratch on Slovak](https://github.com/kavicka/12-gpt-from-scratch-sk) | Own BPE tokenizer (2.36 tokens per Slovak word vs 3.39 for GPT-2) and a 13.8M-parameter GPT trained on Slovak Wikipedia on MPS: perplexity 20.0 vs 136.4 bigram, KV cache 4.7× on CPU, attention heatmaps | ✅ |
+| 13 | [P5: Fine-tuning a small model: LoRA vs DPO](https://github.com/kavicka/13-finetuning-lora-dpo-sk) | Qwen3-1.7B extracts JSON from synthetic Slovak insurance claims: micro F1 0.968 with LoRA vs 0.812 zero-shot and 0.885 few-shot, valid JSON 24 % → 100 % in Ollama at 0.83 s per report, DPO adds nothing measurable (0.964), 25 examples already beat the prompt | ✅ |
 
 ## Roadmap
 1. **Setup & math** – environment, derivatives, linear algebra
