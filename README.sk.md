@@ -4,6 +4,8 @@
 
 Moja cesta od základov ML po AI engineering. **Tento repozitár je len rozcestník.** Každý krok roadmapy je samostatný privátny repozitár s vlastným prostredím, kódom, výsledkami a popisom; tabuľka na ne odkazuje.
 
+Každé projektové README teraz začína jednoduchým vysvetlením pred technickými detailmi. Po kliknutí na projekt nájdeš konkrétne príklady, namerané výsledky, grafy aj anglickú verziu.
+
 | # | Projekt | Čo ukazuje | Stav |
 |---|---|---|---|
 | 01 | [Setup a benchmark násobenia matíc](https://github.com/kavicka/01-setup-benchmark/blob/main/README.sk.md) | Reprodukovateľné prostredie `uv` + PyTorch, benchmark CPU/MPS/CUDA, škálovanie O(n³) | ✅ |
@@ -16,7 +18,7 @@ Moja cesta od základov ML po AI engineering. **Tento repozitár je len rozcestn
 | 08 | [MLE, softmax, cross-entropy a KL](https://github.com/kavicka/08-mle-cross-entropy-kl/blob/main/README.sk.md) | Matematika pred P4: minimalizácia cross-entropy skončí presne na MLE (NLL = CE na 8,9e-16, dno lossu = entropia dát 1,652), gradient = softmax − one-hot, forward vs reverse KL | ✅ |
 | 09 | [Low-rank, SVD a LoRA](https://github.com/kavicka/09-low-rank-svd-lora/blob/main/README.sk.md) | Matematika pred P5: 8 najväčších singulárnych hodnôt drží 91,7 % fotky, zmena z plného fine-tuningu má 86 % energie v 8 smeroch, LoRA r=8 dosiahne 95,9 % vs 96,9 % pri plnom FT s tretinou parametrov | ✅ |
 | 10 | [Normy a cosine similarity](https://github.com/kavicka/10-norms-cosine-similarity/blob/main/README.sk.md) | Matematika pred P6: na jednotkových vektoroch dá súčin = cosine = L2 rovnaké poradie (100 % rovnakých top-10), surový súčin uprednostňuje dlhé dokumenty, vektory bge-m3 majú normu 1,0000 | ✅ |
-| 11 | [P3: Klasifikátor obrázkov v PyTorchi](https://github.com/kavicka/11-image-classifier-pytorch) | Vlastný trénovací cyklus na MPS: ResNet-20 od nuly na CIFAR-10 (91,35 % vs 40,04 % lineárny), transfer learning na 10 triedach Food-101 (94,76 % vs 75,08 % od nuly), 37 behov v MLflow, Grad-CAM, ONNX | ✅ |
+| 11 | [P3: Klasifikátor obrázkov v PyTorchi](https://github.com/kavicka/11-image-classifier-pytorch/blob/main/README.sk.md) | Vlastný trénovací cyklus na MPS: ResNet-20 od nuly na CIFAR-10 (91,35 % vs 40,04 % lineárny), transfer learning na 10 triedach Food-101 (94,76 % vs 75,08 % od nuly), 37 behov v MLflow, Grad-CAM, ONNX | ✅ |
 | 12 | [P4: GPT od nuly na slovenčine](https://github.com/kavicka/12-gpt-from-scratch-sk/blob/main/README.sk.md) | Vlastný BPE tokenizer (2,36 tokenu na slovenské slovo vs 3,39 pri GPT-2) a GPT s 13,8M parametrov natrénovaný na slovenskej Wikipédii na MPS: perplexita 20,0 vs 136,4 bigram, KV cache 4,7× na CPU, heatmapy attention | ✅ |
 | 13 | [P5: Doladenie malého modelu: LoRA vs DPO](https://github.com/kavicka/13-finetuning-lora-dpo-sk/blob/main/README.sk.md) | Qwen3-1.7B vyťahuje JSON zo syntetických slovenských hlásení poistných udalostí: micro F1 0,968 s LoRA vs 0,812 zero-shot a 0,885 few-shot, platný JSON 24 % → 100 % v Ollame za 0,83 s na hlásenie, DPO nepridá nič merateľné (0,964), už 25 príkladov porazí prompt | ✅ |
 
