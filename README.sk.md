@@ -23,8 +23,8 @@ Každé projektové README teraz začína jednoduchým vysvetlením pred technic
 | 13 | [P5: Doladenie malého modelu: LoRA vs DPO](https://github.com/kavicka/13-finetuning-lora-dpo-sk/blob/main/README.sk.md) | Qwen3-1.7B vyťahuje JSON zo syntetických slovenských hlásení poistných udalostí: micro F1 0,968 s LoRA vs 0,812 zero-shot a 0,885 few-shot, platný JSON 24 % → 100 % v Ollame za 0,83 s na hlásenie, DPO nepridá nič merateľné (0,964), už 25 príkladov porazí prompt | ✅ |
 | 14 | [P6: Embeddingy a vyhľadávanie](https://github.com/kavicka/14-embeddings-retrieval-sk/blob/main/README.sk.md) | Vyhľadávanie v slovenských poistných podmienkach, 141 ručne skontrolovaných otázok od nevidených poisťovní: recall@5 BM25 0,191, bge-m3 0,574, doladený (in-batch) 0,674, no validácia vybrala model s hard negatives (0,617, bez preukázateľného zlepšenia). Vlastný brute-force vs HNSW na 200k vektoroch: 5,45 ms vs 0,19 ms pri recall 0,955 | ✅ |
 
-### Plánované: GenAI full-stack séria (kroky 15–19)
-Ďalšie kroky pokrývajú to, čo chce GenAI full-stack pozícia: RAG, agentov, MCP, React, kontajnery, AWS a nasadzovanie v regulovanom (GxP) prostredí. Používajú verejné dáta o klinických štúdiách (ClinicalTrials.gov, openFDA) a všetky tajomstvá (API kľúče, AWS prístupy) sa čítajú z prostredia, nikdy nie sú v gite.
+### Plánované: GenAI full-stack séria (kroky 15–20)
+Ďalšie kroky pokrývajú to, čo chce GenAI full-stack pozícia: RAG, agentov, MCP, React, kontajnery, AWS, Azure a nasadzovanie v regulovanom (GxP) prostredí. Používajú verejné dáta o klinických štúdiách (ClinicalTrials.gov, openFDA) a všetky tajomstvá (API kľúče, AWS prístupy) sa čítajú z prostredia, nikdy nie sú v gite.
 
 | # | Projekt | Čo bude ukazovať | Stav |
 |---|---|---|---|
@@ -32,15 +32,16 @@ Každé projektové README teraz začína jednoduchým vysvetlením pred technic
 | 16 | P8: AI agent a vlastný MCP server | Agent loop od nuly s volaním nástrojov, potom tie isté nástroje ako MCP server; úspešnosť úloh vs jeden prompt | ⏳ plánované |
 | 17 | Kontajnery, mikroslužby a CI/CD | Krok 15 rozdelený na služby, docker compose, lokálny Kubernetes (kind), GitHub Actions s eval quality gate, Terraform | ⏳ plánované |
 | 18 | AWS na free pláne | Pipeline S3 → Lambda → index, API Gateway, DynamoDB, všetko v Terraforme; kľúče v SSM Parameter Store, CI cez OIDC (žiadne dlhodobé kľúče), rozpočtový alarm | ⏳ plánované |
-| 19 | GxP migrácia dokumentov a archivácia aplikácií | Migrácia z legacy systému do cieľového DMS s mapovaním metadát, validáciou, checksumami, audit trailom, dry runom a reconciliation reportom; archivácia vyradenej aplikácie; URS, testovacie skripty, traceability matica | ⏳ plánované |
+| 19 | Azure AI: ten istý RAG na Azure | Krok 15 za jedným rozhraním poskytovateľa (`ollama`, `bedrock` alebo `azure_openai`, volí sa v `.env`); Azure OpenAI + Azure AI Search namiesto Qdrantu, nasadené cez Terraform; iba pár testovacích otázok, aby to ostalo na 0 €; lokálne vs Azure v kvalite, latencii a cene za odpoveď | ⏳ plánované |
+| 20 | GxP migrácia dokumentov a archivácia aplikácií | Migrácia z legacy systému do cieľového DMS s mapovaním metadát, validáciou, checksumami, audit trailom, dry runom a reconciliation reportom; archivácia vyradenej aplikácie; URS, testovacie skripty, traceability matica | ⏳ plánované |
 
 ## Roadmapa
 1. **Setup a matematika** – prostredie, derivácie, lineárna algebra
 2. **Základy ML** – autograd od nuly, tabulárne ML (churn), klasifikátor obrázkov
 3. **Deep learning a transformery** – GPT od nuly v slovenčine, LoRA/DPO fine-tuning, embeddings a retrieval
 4. **AI engineering** – full-stack RAG (FastAPI + React), agenti a MCP, observability a guardrails, GxP migrácia dokumentov
-5. **Serving a MLOps** – kontajnery, Kubernetes, CI/CD, Terraform, AWS, optimalizácia inferencie
-6. **Capstone** – end-to-end GenAI systém nad dátami klinických štúdií (spája kroky 15–19)
+5. **Serving a MLOps** – kontajnery, Kubernetes, CI/CD, Terraform, AWS, Azure, optimalizácia inferencie
+6. **Capstone** – end-to-end GenAI systém nad dátami klinických štúdií (spája kroky 15–20)
 
 ## Konvencie
 - Každý projekt sa spúšťa cez `uv sync && uv run python <skript>.py`.
