@@ -28,7 +28,7 @@ Next steps cover what a GenAI full-stack role asks for: RAG, agents, MCP, React,
 
 | # | Project | What it will show | Status |
 |---|---|---|---|
-| 15 | P7: RAG app: FastAPI + React | Chunking, hybrid search (BM25 + vectors), reranking, answers with citations, streaming React/TypeScript UI; LLM without retrieval vs RAG on a hand-checked eval set | ⏳ planned |
+| 15 | [P7: RAG app: FastAPI + React](https://github.com/kavicka/15-rag-fullstack-clinical) | Chunking, hybrid search (BM25 + vectors), reranking, answers with citations, streaming React/TypeScript UI; LLM without retrieval vs RAG on a hand-checked eval set | 🚧 in progress |
 | 16 | P8: AI agent & own MCP server | Agent loop from scratch with tool calling, then the same tools as an MCP server; task success rate vs a single prompt | ⏳ planned |
 | 17 | Containers, microservices & CI/CD | Step 15 split into services, docker compose, local Kubernetes (kind), GitHub Actions with an eval quality gate, Terraform | ⏳ planned |
 | 18 | AWS on the free plan | S3 → Lambda → index pipeline, API Gateway, DynamoDB, all in Terraform; keys in SSM Parameter Store, CI via OIDC (no long-lived keys), budget alarm | ⏳ planned |

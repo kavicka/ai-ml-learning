@@ -28,7 +28,7 @@ Každé projektové README teraz začína jednoduchým vysvetlením pred technic
 
 | # | Projekt | Čo bude ukazovať | Stav |
 |---|---|---|---|
-| 15 | P7: RAG aplikácia: FastAPI + React | Chunking, hybridné vyhľadávanie (BM25 + vektory), reranking, odpovede s citáciami, streamované React/TypeScript UI; LLM bez vyhľadávania vs RAG na ručne skontrolovanom eval sete | ⏳ plánované |
+| 15 | [P7: RAG aplikácia: FastAPI + React](https://github.com/kavicka/15-rag-fullstack-clinical/blob/main/README.sk.md) | Chunking, hybridné vyhľadávanie (BM25 + vektory), reranking, odpovede s citáciami, streamované React/TypeScript UI; LLM bez vyhľadávania vs RAG na ručne skontrolovanom eval sete | 🚧 rozpracované |
 | 16 | P8: AI agent a vlastný MCP server | Agent loop od nuly s volaním nástrojov, potom tie isté nástroje ako MCP server; úspešnosť úloh vs jeden prompt | ⏳ plánované |
 | 17 | Kontajnery, mikroslužby a CI/CD | Krok 15 rozdelený na služby, docker compose, lokálny Kubernetes (kind), GitHub Actions s eval quality gate, Terraform | ⏳ plánované |
 | 18 | AWS na free pláne | Pipeline S3 → Lambda → index, API Gateway, DynamoDB, všetko v Terraforme; kľúče v SSM Parameter Store, CI cez OIDC (žiadne dlhodobé kľúče), rozpočtový alarm | ⏳ plánované |
