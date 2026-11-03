@@ -28,7 +28,7 @@ Each project README now starts with a plain-language explanation before the tech
 | 20 | [GxP document migration & app retirement](https://github.com/kavicka/20-gxp-document-migration) | 294 legacy documents with 45 injected defects into a Vault-like DMS: lift-and-shift loads 40 defective documents and 0 % fully correct records, the validated pipeline quarantines 45 / 45 with a reason and rejects 0 clean ones; hash-chained audit trail, CTMS archive kept 25 years, 13 / 13 requirements verified | ✅ |
 
 ### Planned: GenAI full-stack track (steps 18–19)
-Next steps cover what a GenAI full-stack role asks for: RAG, agents, MCP, React, containers, AWS, Azure and regulated (GxP) delivery. They use public clinical-trial data (ClinicalTrials.gov, openFDA), and every secret (API keys, AWS credentials) is read from the environment, never committed.
+The two remaining steps put the same app on AWS and Azure. Every secret (API keys, cloud credentials) is read from the environment, never committed.
 
 | # | Project | What it will show | Status |
 |---|---|---|---|

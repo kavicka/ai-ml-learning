@@ -28,7 +28,7 @@ Každé projektové README teraz začína jednoduchým vysvetlením pred technic
 | 20 | [GxP migrácia dokumentov a vyradenie aplikácie](https://github.com/kavicka/20-gxp-document-migration/blob/main/README.sk.md) | 294 legacy dokumentov so 45 vloženými chybami do DMS podobného Vaultu: lift-and-shift nahrá 40 chybných dokumentov a 0 % úplne správnych záznamov, validovaná pipeline dá 45 / 45 do karantény s dôvodom a neodmietne ani jeden správny; audit trail s hash reťazcom, archív CTMS na 25 rokov, 13 / 13 požiadaviek overených | ✅ |
 
 ### Plánované: GenAI full-stack séria (kroky 18–19)
-Ďalšie kroky pokrývajú to, čo chce GenAI full-stack pozícia: RAG, agentov, MCP, React, kontajnery, AWS, Azure a nasadzovanie v regulovanom (GxP) prostredí. Používajú verejné dáta o klinických štúdiách (ClinicalTrials.gov, openFDA) a všetky tajomstvá (API kľúče, AWS prístupy) sa čítajú z prostredia, nikdy nie sú v gite.
+Zvyšné dva kroky nasadia tú istú aplikáciu na AWS a Azure. Všetky tajomstvá (API kľúče, cloudové prístupy) sa čítajú z prostredia, nikdy nie sú v gite.
 
 | # | Projekt | Čo bude ukazovať | Stav |
 |---|---|---|---|
