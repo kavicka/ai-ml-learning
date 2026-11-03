@@ -23,15 +23,15 @@ Each project README now starts with a plain-language explanation before the tech
 | 13 | [P5: Fine-tuning a small model: LoRA vs DPO](https://github.com/kavicka/13-finetuning-lora-dpo-sk) | Qwen3-1.7B extracts JSON from synthetic Slovak insurance claims: micro F1 0.968 with LoRA vs 0.812 zero-shot and 0.885 few-shot, valid JSON 24 % → 100 % in Ollama at 0.83 s per report, DPO adds nothing measurable (0.964), 25 examples already beat the prompt | ✅ |
 | 14 | [P6: Embeddings & retrieval](https://github.com/kavicka/14-embeddings-retrieval-sk) | Retrieval on Slovak insurance terms, 141 hand-reviewed questions from unseen insurers: recall@5 BM25 0.191, bge-m3 0.574, fine-tuned (in-batch) 0.674, but validation picked the hard-negative model (0.617, no provable gain). Own brute-force vs HNSW on 200k vectors: 5.45 ms vs 0.19 ms at recall 0.955 | ✅ |
 | 15 | [P7: RAG app: FastAPI + React](https://github.com/kavicka/15-rag-fullstack-clinical) | 396 public clinical trials, FastAPI + SSE + React/TypeScript UI with citations: answers 15.9 % correct with the LLM alone → 96.8 % with hybrid search + reranker (Qwen3-1.7B), passage with the answer at rank 1 for 42 % (BM25) → 86 % (reranker), 0 made-up citations | ✅ |
+| 16 | [P8: AI agent from scratch + MCP server](https://github.com/kavicka/16-agent-mcp-clinical) | Agent loop with 4 typed ClinicalTrials.gov tools, the same tools as an MCP server (SDK 2.x): 33 multi-step tasks with Qwen3-1.7B, 0 % LLM alone → 69.7 % agent → 93.9 % after rewriting the tool descriptions, same 93.9 % over MCP once the stdio server gets its environment | ✅ |
+| 17 | [Containers, Kubernetes, CI/CD & Terraform](https://github.com/kavicka/17-containers-k8s-cicd) | Step 15 as qdrant + indexer job + api + web: onnxruntime (63 MB) instead of PyTorch (5.1 GB) with identical retrieval, compose + kind in GitHub Actions with a retrieval eval gate, Terraform platform layer; a rolling restart lost 3 / 819 requests until a preStop hook made it 0 / 864 | ✅ |
 | 20 | [GxP document migration & app retirement](https://github.com/kavicka/20-gxp-document-migration) | 294 legacy documents with 45 injected defects into a Vault-like DMS: lift-and-shift loads 40 defective documents and 0 % fully correct records, the validated pipeline quarantines 45 / 45 with a reason and rejects 0 clean ones; hash-chained audit trail, CTMS archive kept 25 years, 13 / 13 requirements verified | ✅ |
 
-### Planned: GenAI full-stack track (steps 16–19)
+### Planned: GenAI full-stack track (steps 18–19)
 Next steps cover what a GenAI full-stack role asks for: RAG, agents, MCP, React, containers, AWS, Azure and regulated (GxP) delivery. They use public clinical-trial data (ClinicalTrials.gov, openFDA), and every secret (API keys, AWS credentials) is read from the environment, never committed.
 
 | # | Project | What it will show | Status |
 |---|---|---|---|
-| 16 | P8: AI agent & own MCP server | Agent loop from scratch with tool calling, then the same tools as an MCP server; task success rate vs a single prompt | ⏳ planned |
-| 17 | Containers, microservices & CI/CD | Step 15 split into services, docker compose, local Kubernetes (kind), GitHub Actions with an eval quality gate, Terraform | ⏳ planned |
 | 18 | AWS on the free plan | S3 → Lambda → index pipeline, API Gateway, DynamoDB, all in Terraform; keys in SSM Parameter Store, CI via OIDC (no long-lived keys), budget alarm | ⏳ planned |
 | 19 | Azure AI: same RAG on Azure | Step 15 behind one provider interface (`ollama`, `bedrock` or `azure_openai`, chosen in `.env`); Azure OpenAI + Azure AI Search instead of Qdrant, deployed with Terraform; a few test questions only, to stay at 0 €; local vs Azure on quality, latency and cost per answer | ⏳ planned |
 
