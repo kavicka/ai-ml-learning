@@ -22,18 +22,18 @@ Každé projektové README teraz začína jednoduchým vysvetlením pred technic
 | 12 | [P4: GPT od nuly na slovenčine](https://github.com/kavicka/12-gpt-from-scratch-sk/blob/main/README.sk.md) | Vlastný BPE tokenizer (2,36 tokenu na slovenské slovo vs 3,39 pri GPT-2) a GPT s 13,8M parametrov natrénovaný na slovenskej Wikipédii na MPS: perplexita 20,0 vs 136,4 bigram, KV cache 4,7× na CPU, heatmapy attention | ✅ |
 | 13 | [P5: Doladenie malého modelu: LoRA vs DPO](https://github.com/kavicka/13-finetuning-lora-dpo-sk/blob/main/README.sk.md) | Qwen3-1.7B vyťahuje JSON zo syntetických slovenských hlásení poistných udalostí: micro F1 0,968 s LoRA vs 0,812 zero-shot a 0,885 few-shot, platný JSON 24 % → 100 % v Ollame za 0,83 s na hlásenie, DPO nepridá nič merateľné (0,964), už 25 príkladov porazí prompt | ✅ |
 | 14 | [P6: Embeddingy a vyhľadávanie](https://github.com/kavicka/14-embeddings-retrieval-sk/blob/main/README.sk.md) | Vyhľadávanie v slovenských poistných podmienkach, 141 ručne skontrolovaných otázok od nevidených poisťovní: recall@5 BM25 0,191, bge-m3 0,574, doladený (in-batch) 0,674, no validácia vybrala model s hard negatives (0,617, bez preukázateľného zlepšenia). Vlastný brute-force vs HNSW na 200k vektoroch: 5,45 ms vs 0,19 ms pri recall 0,955 | ✅ |
+| 15 | [P7: RAG aplikácia: FastAPI + React](https://github.com/kavicka/15-rag-fullstack-clinical/blob/main/README.sk.md) | 396 verejných klinických štúdií, FastAPI + SSE + React/TypeScript UI s citáciami: samotné LLM odpovie správne na 15,9 %, s hybridným vyhľadávaním a rerankerom na 96,8 % (Qwen3-1.7B), pasáž s odpoveďou na 1. mieste pri 42 % (BM25) → 86 % (reranker), 0 vymyslených citácií | ✅ |
+| 20 | [GxP migrácia dokumentov a vyradenie aplikácie](https://github.com/kavicka/20-gxp-document-migration/blob/main/README.sk.md) | 294 legacy dokumentov so 45 vloženými chybami do DMS podobného Vaultu: lift-and-shift nahrá 40 chybných dokumentov a 0 % úplne správnych záznamov, validovaná pipeline dá 45 / 45 do karantény s dôvodom a neodmietne ani jeden správny; audit trail s hash reťazcom, archív CTMS na 25 rokov, 13 / 13 požiadaviek overených | ✅ |
 
-### Plánované: GenAI full-stack séria (kroky 15–20)
+### Plánované: GenAI full-stack séria (kroky 16–19)
 Ďalšie kroky pokrývajú to, čo chce GenAI full-stack pozícia: RAG, agentov, MCP, React, kontajnery, AWS, Azure a nasadzovanie v regulovanom (GxP) prostredí. Používajú verejné dáta o klinických štúdiách (ClinicalTrials.gov, openFDA) a všetky tajomstvá (API kľúče, AWS prístupy) sa čítajú z prostredia, nikdy nie sú v gite.
 
 | # | Projekt | Čo bude ukazovať | Stav |
 |---|---|---|---|
-| 15 | [P7: RAG aplikácia: FastAPI + React](https://github.com/kavicka/15-rag-fullstack-clinical/blob/main/README.sk.md) | Chunking, hybridné vyhľadávanie (BM25 + vektory), reranking, odpovede s citáciami, streamované React/TypeScript UI; LLM bez vyhľadávania vs RAG na ručne skontrolovanom eval sete | 🚧 rozpracované |
 | 16 | P8: AI agent a vlastný MCP server | Agent loop od nuly s volaním nástrojov, potom tie isté nástroje ako MCP server; úspešnosť úloh vs jeden prompt | ⏳ plánované |
 | 17 | Kontajnery, mikroslužby a CI/CD | Krok 15 rozdelený na služby, docker compose, lokálny Kubernetes (kind), GitHub Actions s eval quality gate, Terraform | ⏳ plánované |
 | 18 | AWS na free pláne | Pipeline S3 → Lambda → index, API Gateway, DynamoDB, všetko v Terraforme; kľúče v SSM Parameter Store, CI cez OIDC (žiadne dlhodobé kľúče), rozpočtový alarm | ⏳ plánované |
 | 19 | Azure AI: ten istý RAG na Azure | Krok 15 za jedným rozhraním poskytovateľa (`ollama`, `bedrock` alebo `azure_openai`, volí sa v `.env`); Azure OpenAI + Azure AI Search namiesto Qdrantu, nasadené cez Terraform; iba pár testovacích otázok, aby to ostalo na 0 €; lokálne vs Azure v kvalite, latencii a cene za odpoveď | ⏳ plánované |
-| 20 | GxP migrácia dokumentov a archivácia aplikácií | Migrácia z legacy systému do cieľového DMS s mapovaním metadát, validáciou, checksumami, audit trailom, dry runom a reconciliation reportom; archivácia vyradenej aplikácie; URS, testovacie skripty, traceability matica | ⏳ plánované |
 
 ## Roadmapa
 1. **Setup a matematika** – prostredie, derivácie, lineárna algebra

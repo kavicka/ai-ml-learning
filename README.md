@@ -22,18 +22,18 @@ Each project README now starts with a plain-language explanation before the tech
 | 12 | [P4: GPT from scratch on Slovak](https://github.com/kavicka/12-gpt-from-scratch-sk) | Own BPE tokenizer (2.36 tokens per Slovak word vs 3.39 for GPT-2) and a 13.8M-parameter GPT trained on Slovak Wikipedia on MPS: perplexity 20.0 vs 136.4 bigram, KV cache 4.7× on CPU, attention heatmaps | ✅ |
 | 13 | [P5: Fine-tuning a small model: LoRA vs DPO](https://github.com/kavicka/13-finetuning-lora-dpo-sk) | Qwen3-1.7B extracts JSON from synthetic Slovak insurance claims: micro F1 0.968 with LoRA vs 0.812 zero-shot and 0.885 few-shot, valid JSON 24 % → 100 % in Ollama at 0.83 s per report, DPO adds nothing measurable (0.964), 25 examples already beat the prompt | ✅ |
 | 14 | [P6: Embeddings & retrieval](https://github.com/kavicka/14-embeddings-retrieval-sk) | Retrieval on Slovak insurance terms, 141 hand-reviewed questions from unseen insurers: recall@5 BM25 0.191, bge-m3 0.574, fine-tuned (in-batch) 0.674, but validation picked the hard-negative model (0.617, no provable gain). Own brute-force vs HNSW on 200k vectors: 5.45 ms vs 0.19 ms at recall 0.955 | ✅ |
+| 15 | [P7: RAG app: FastAPI + React](https://github.com/kavicka/15-rag-fullstack-clinical) | 396 public clinical trials, FastAPI + SSE + React/TypeScript UI with citations: answers 15.9 % correct with the LLM alone → 96.8 % with hybrid search + reranker (Qwen3-1.7B), passage with the answer at rank 1 for 42 % (BM25) → 86 % (reranker), 0 made-up citations | ✅ |
+| 20 | [GxP document migration & app retirement](https://github.com/kavicka/20-gxp-document-migration) | 294 legacy documents with 45 injected defects into a Vault-like DMS: lift-and-shift loads 40 defective documents and 0 % fully correct records, the validated pipeline quarantines 45 / 45 with a reason and rejects 0 clean ones; hash-chained audit trail, CTMS archive kept 25 years, 13 / 13 requirements verified | ✅ |
 
-### Planned: GenAI full-stack track (steps 15–20)
+### Planned: GenAI full-stack track (steps 16–19)
 Next steps cover what a GenAI full-stack role asks for: RAG, agents, MCP, React, containers, AWS, Azure and regulated (GxP) delivery. They use public clinical-trial data (ClinicalTrials.gov, openFDA), and every secret (API keys, AWS credentials) is read from the environment, never committed.
 
 | # | Project | What it will show | Status |
 |---|---|---|---|
-| 15 | [P7: RAG app: FastAPI + React](https://github.com/kavicka/15-rag-fullstack-clinical) | Chunking, hybrid search (BM25 + vectors), reranking, answers with citations, streaming React/TypeScript UI; LLM without retrieval vs RAG on a hand-checked eval set | 🚧 in progress |
 | 16 | P8: AI agent & own MCP server | Agent loop from scratch with tool calling, then the same tools as an MCP server; task success rate vs a single prompt | ⏳ planned |
 | 17 | Containers, microservices & CI/CD | Step 15 split into services, docker compose, local Kubernetes (kind), GitHub Actions with an eval quality gate, Terraform | ⏳ planned |
 | 18 | AWS on the free plan | S3 → Lambda → index pipeline, API Gateway, DynamoDB, all in Terraform; keys in SSM Parameter Store, CI via OIDC (no long-lived keys), budget alarm | ⏳ planned |
 | 19 | Azure AI: same RAG on Azure | Step 15 behind one provider interface (`ollama`, `bedrock` or `azure_openai`, chosen in `.env`); Azure OpenAI + Azure AI Search instead of Qdrant, deployed with Terraform; a few test questions only, to stay at 0 €; local vs Azure on quality, latency and cost per answer | ⏳ planned |
-| 20 | GxP document migration & app archiving | Legacy → target DMS migration with metadata mapping, validation, checksums, audit trail, dry run and reconciliation report; archiving a retired app; URS, test scripts, traceability matrix | ⏳ planned |
 
 ## Roadmap
 1. **Setup & math** – environment, derivatives, linear algebra
