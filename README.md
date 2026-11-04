@@ -33,7 +33,7 @@ The two remaining steps put the same app on AWS and Azure. Every secret (API key
 | # | Project | What it will show | Status |
 |---|---|---|---|
 | 18 | AWS on the free plan | S3 → Lambda → index pipeline, API Gateway, DynamoDB, all in Terraform; keys in SSM Parameter Store, CI via OIDC (no long-lived keys), budget alarm | ⏳ planned |
-| 19 | Azure AI: same RAG on Azure | Step 15 behind one provider interface (`ollama`, `bedrock` or `azure_openai`, chosen in `.env`); Azure OpenAI + Azure AI Search instead of Qdrant, deployed with Terraform; a few test questions only, to stay at 0 €; local vs Azure on quality, latency and cost per answer | ⏳ planned |
+| 19 | [Azure AI: same RAG on Azure](https://github.com/kavicka/19-azure-ai-rag) | Step 15 with search, embeddings and LLM each switchable in `.env` between local (own BM25 + Qdrant, bge, Ollama) and Azure (AI Search Free, Azure OpenAI); keyless via Entra ID + RBAC, infrastructure in Terraform with plan tests; the full eval (141 + 156 questions) on both stacks: quality, latency and real cost per answer, on Azure for Students credit | 🔧 code + tests done, Azure runs pending |
 
 ## Roadmap
 1. **Setup & math** – environment, derivatives, linear algebra
