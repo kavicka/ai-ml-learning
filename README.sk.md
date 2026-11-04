@@ -2,7 +2,7 @@
 
 🇬🇧 [English version](README.md)
 
-Moja cesta od základov ML po AI engineering. **Tento repozitár je len rozcestník.** Každý krok roadmapy je samostatný privátny repozitár s vlastným prostredím, kódom, výsledkami a popisom; tabuľka na ne odkazuje.
+Moja cesta od základov ML po AI engineering. **Tento repozitár je len rozcestník.** Každý krok roadmapy je samostatný repozitár s vlastným prostredím, kódom, výsledkami a popisom; tabuľka na ne odkazuje.
 
 Každé projektové README teraz začína jednoduchým vysvetlením pred technickými detailmi. Po kliknutí na projekt nájdeš konkrétne príklady, namerané výsledky, grafy aj anglickú verziu.
 

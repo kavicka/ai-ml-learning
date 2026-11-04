@@ -2,7 +2,7 @@
 
 🇸🇰 [Slovenská verzia](README.sk.md)
 
-My path from ML fundamentals to AI engineering. **This repo is only the index.** Every step of the roadmap is its own private repository with its own environment, code, results and write-up; the table links to them.
+My path from ML fundamentals to AI engineering. **This repo is only the index.** Every step of the roadmap is its own repository with its own environment, code, results and write-up; the table links to them.
 
 Each project README now starts with a plain-language explanation before the technical walkthrough. Follow a project link to see its examples, measured results, plots, and Slovak translation.
 
