@@ -33,7 +33,7 @@ Zvyšné dva kroky nasadia tú istú aplikáciu na AWS a Azure. Všetky tajomstv
 | # | Projekt | Čo bude ukazovať | Stav |
 |---|---|---|---|
 | 18 | AWS na free pláne | Pipeline S3 → Lambda → index, API Gateway, DynamoDB, všetko v Terraforme; kľúče v SSM Parameter Store, CI cez OIDC (žiadne dlhodobé kľúče), rozpočtový alarm | ⏳ plánované |
-| 19 | Azure AI: ten istý RAG na Azure | Krok 15 za jedným rozhraním poskytovateľa (`ollama`, `bedrock` alebo `azure_openai`, volí sa v `.env`); Azure OpenAI + Azure AI Search namiesto Qdrantu, nasadené cez Terraform; iba pár testovacích otázok, aby to ostalo na 0 €; lokálne vs Azure v kvalite, latencii a cene za odpoveď | ⏳ plánované |
+| 19 | [Azure AI: ten istý RAG na Azure](https://github.com/kavicka/19-azure-ai-rag/blob/main/README.sk.md) | Krok 15, v ktorom sa vyhľadávanie, embeddingy aj LLM prepínajú v `.env` medzi lokálnym stackom (vlastný BM25 + Qdrant, bge, Ollama) a Azure (AI Search Free, Azure OpenAI); bez kľúčov cez Entra ID + RBAC, infraštruktúra v Terraforme s testami plánu; celý eval (141 + 156 otázok) na oboch stackoch: kvalita, latencia a skutočná cena za odpoveď, na kredite Azure for Students | 🔧 kód + testy hotové, behy na Azure čakajú |
 
 ## Roadmapa
 1. **Setup a matematika** – prostredie, derivácie, lineárna algebra
