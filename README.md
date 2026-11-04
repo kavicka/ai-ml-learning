@@ -26,6 +26,7 @@ Each project README now starts with a plain-language explanation before the tech
 | 16 | [P8: AI agent from scratch + MCP server](https://github.com/kavicka/16-agent-mcp-clinical) | Agent loop with 4 typed ClinicalTrials.gov tools, the same tools as an MCP server (SDK 2.x): 33 multi-step tasks with Qwen3-1.7B, 0 % LLM alone → 69.7 % agent → 93.9 % after rewriting the tool descriptions, same 93.9 % over MCP once the stdio server gets its environment | ✅ |
 | 17 | [Containers, Kubernetes, CI/CD & Terraform](https://github.com/kavicka/17-containers-k8s-cicd) | Step 15 as qdrant + indexer job + api + web: onnxruntime (63 MB) instead of PyTorch (5.1 GB) with identical retrieval, compose + kind in GitHub Actions with a retrieval eval gate, Terraform platform layer; a rolling restart lost 3 / 819 requests until a preStop hook made it 0 / 864 | ✅ |
 | 20 | [GxP document migration & app retirement](https://github.com/kavicka/20-gxp-document-migration) | 294 legacy documents with 45 injected defects into a Vault-like DMS: lift-and-shift loads 40 defective documents and 0 % fully correct records, the validated pipeline quarantines 45 / 45 with a reason and rejects 0 clean ones; hash-chained audit trail, CTMS archive kept 25 years, 13 / 13 requirements verified | ✅ |
+| 21 | [RAG from scratch vs LangChain / LangGraph](https://github.com/kavicka/21-rag-langchain-vs-scratch) | Step 15 rebuilt with LangChain on the same 156 questions and CPU: configured like step 15 it matches (accuracy 0.984 vs 0.968, 245 vs 368 lines of code), with the tutorial defaults it drops to 0.714 (answer chunk in the top 5: 0.706 vs 0.968); a LangGraph grade → rewrite loop adds +31–42 % latency for 0–2 questions; +37 packages, ~7 ms orchestration per question, RAGAS judge vs rules κ 0.33, Phoenix traces | ✅ |
 
 ### Planned: GenAI full-stack track (steps 18–19)
 The two remaining steps put the same app on AWS and Azure. Every secret (API keys, cloud credentials) is read from the environment, never committed.
@@ -39,7 +40,7 @@ The two remaining steps put the same app on AWS and Azure. Every secret (API key
 1. **Setup & math** – environment, derivatives, linear algebra
 2. **ML fundamentals** – autograd from scratch, tabular ML (churn), image classifier
 3. **Deep learning & transformers** – GPT from scratch in Slovak, LoRA/DPO fine-tuning, embeddings & retrieval
-4. **AI engineering** – full-stack RAG (FastAPI + React), agents & MCP, observability and guardrails, GxP document migration
+4. **AI engineering** – full-stack RAG (FastAPI + React), agents & MCP, RAG from scratch vs LangChain / LangGraph, observability and guardrails, GxP document migration
 5. **Serving & MLOps** – containers, Kubernetes, CI/CD, Terraform, AWS, Azure, inference optimization
 6. **Capstone** – end-to-end GenAI system on clinical-trial data (combines steps 15–20)
 

@@ -26,6 +26,7 @@ Každé projektové README teraz začína jednoduchým vysvetlením pred technic
 | 16 | [P8: AI agent od nuly + MCP server](https://github.com/kavicka/16-agent-mcp-clinical/blob/main/README.sk.md) | Agent loop so 4 typovanými nástrojmi nad ClinicalTrials.gov, tie isté nástroje ako MCP server (SDK 2.x): 33 viackrokových úloh s Qwen3-1.7B, samotné LLM 0 % → agent 69,7 % → 93,9 % po prepísaní popisov nástrojov, rovnakých 93,9 % cez MCP, keď stdio server dostane svoje prostredie | ✅ |
 | 17 | [Kontajnery, Kubernetes, CI/CD a Terraform](https://github.com/kavicka/17-containers-k8s-cicd/blob/main/README.sk.md) | Krok 15 ako qdrant + indexer job + api + web: onnxruntime (63 MB) namiesto PyTorchu (5,1 GB) s rovnakým vyhľadávaním, compose + kind v GitHub Actions s eval gate na vyhľadávanie, platformová vrstva v Terraforme; rolling restart stratil 3 / 819 požiadaviek, kým preStop hook nespravil 0 / 864 | ✅ |
 | 20 | [GxP migrácia dokumentov a vyradenie aplikácie](https://github.com/kavicka/20-gxp-document-migration/blob/main/README.sk.md) | 294 legacy dokumentov so 45 vloženými chybami do DMS podobného Vaultu: lift-and-shift nahrá 40 chybných dokumentov a 0 % úplne správnych záznamov, validovaná pipeline dá 45 / 45 do karantény s dôvodom a neodmietne ani jeden správny; audit trail s hash reťazcom, archív CTMS na 25 rokov, 13 / 13 požiadaviek overených | ✅ |
+| 21 | [RAG od základu vs LangChain / LangGraph](https://github.com/kavicka/21-rag-langchain-vs-scratch/blob/main/README.sk.md) | Krok 15 prestavaný v LangChaine na tých istých 156 otázkach a CPU: nastavený ako krok 15 ho dorovná (accuracy 0,984 vs 0,968, 245 vs 368 riadkov kódu), s predvoleným nastavením z tutoriálu klesne na 0,714 (chunk s odpoveďou v top 5: 0,706 vs 0,968); LangGraph slučka grade → rewrite pridá +31–42 % latencie za 0–2 otázky; +37 balíkov, ~7 ms orchestrácie na otázku, RAGAS hodnotiteľ vs pravidlá κ 0,33, traces v Phoenixe | ✅ |
 
 ### Plánované: GenAI full-stack séria (kroky 18–19)
 Zvyšné dva kroky nasadia tú istú aplikáciu na AWS a Azure. Všetky tajomstvá (API kľúče, cloudové prístupy) sa čítajú z prostredia, nikdy nie sú v gite.
@@ -39,7 +40,7 @@ Zvyšné dva kroky nasadia tú istú aplikáciu na AWS a Azure. Všetky tajomstv
 1. **Setup a matematika** – prostredie, derivácie, lineárna algebra
 2. **Základy ML** – autograd od nuly, tabulárne ML (churn), klasifikátor obrázkov
 3. **Deep learning a transformery** – GPT od nuly v slovenčine, LoRA/DPO fine-tuning, embeddings a retrieval
-4. **AI engineering** – full-stack RAG (FastAPI + React), agenti a MCP, observability a guardrails, GxP migrácia dokumentov
+4. **AI engineering** – full-stack RAG (FastAPI + React), agenti a MCP, RAG od základu vs LangChain / LangGraph, observability a guardrails, GxP migrácia dokumentov
 5. **Serving a MLOps** – kontajnery, Kubernetes, CI/CD, Terraform, AWS, Azure, optimalizácia inferencie
 6. **Capstone** – end-to-end GenAI systém nad dátami klinických štúdií (spája kroky 15–20)
 
