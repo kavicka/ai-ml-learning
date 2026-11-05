@@ -28,6 +28,11 @@ Každé projektové README teraz začína jednoduchým vysvetlením pred technic
 | 20 | [GxP migrácia dokumentov a vyradenie aplikácie](https://github.com/kavicka/20-gxp-document-migration/blob/main/README.sk.md) | 294 legacy dokumentov so 45 vloženými chybami do DMS podobného Vaultu: lift-and-shift nahrá 40 chybných dokumentov a 0 % úplne správnych záznamov, validovaná pipeline dá 45 / 45 do karantény s dôvodom a neodmietne ani jeden správny; audit trail s hash reťazcom, archív CTMS na 25 rokov, 13 / 13 požiadaviek overených | ✅ |
 | 21 | [RAG od základu vs LangChain / LangGraph](https://github.com/kavicka/21-rag-langchain-vs-scratch/blob/main/README.sk.md) | Krok 15 prestavaný v LangChaine na tých istých 156 otázkach a CPU: nastavený ako krok 15 ho dorovná (accuracy 0,984 vs 0,968, 245 vs 368 riadkov kódu), s predvoleným nastavením z tutoriálu klesne na 0,714 (chunk s odpoveďou v top 5: 0,706 vs 0,968); LangGraph slučka grade → rewrite pridá +31–42 % latencie za 0–2 otázky; +37 balíkov, ~7 ms orchestrácie na otázku, RAGAS hodnotiteľ vs pravidlá κ 0,33, traces v Phoenixe | ✅ |
 
+### Bonus
+| # | Projekt | Čo ukazuje | Stav |
+|---|---|---|---|
+| B | [RAG riadený evaluáciou nad slovenskými poistnými podmienkami](https://github.com/kavicka/15-rag-evals-sk/blob/main/README.sk.md) | Pôvodný krok 15: 117 overených otázok nad 20 verejnými poistnými podmienkami, rozdelenie dev/test, jedna zmena za druhou. Presnosť 26,0 % samotný LLM → 83,1 % s vyhľadávaním a rerankerom (MRR 0,511 → 0,776), prah na odmietnutie zníži zodpovedané nezodpovedateľné otázky 2 → 0, sudca kalibrovaný na κ 0,80, analýza 24 chybných odpovedí, eval gate v CI | ✅ |
+
 ### Plánované: GenAI full-stack séria (kroky 18–19)
 Zvyšné dva kroky nasadia tú istú aplikáciu na AWS a Azure. Všetky tajomstvá (API kľúče, cloudové prístupy) sa čítajú z prostredia, nikdy nie sú v gite.
 
