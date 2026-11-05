@@ -25,6 +25,7 @@ Each project README now starts with a plain-language explanation before the tech
 | 15 | [P7: RAG app: FastAPI + React](https://github.com/kavicka/15-rag-fullstack-clinical) | 396 public clinical trials, FastAPI + SSE + React/TypeScript UI with citations: answers 15.9 % correct with the LLM alone → 96.8 % with hybrid search + reranker (Qwen3-1.7B), passage with the answer at rank 1 for 42 % (BM25) → 86 % (reranker), 0 made-up citations | ✅ |
 | 16 | [P8: AI agent from scratch + MCP server](https://github.com/kavicka/16-agent-mcp-clinical) | Agent loop with 4 typed ClinicalTrials.gov tools, the same tools as an MCP server (SDK 2.x): 33 multi-step tasks with Qwen3-1.7B, 0 % LLM alone → 69.7 % agent → 93.9 % after rewriting the tool descriptions, same 93.9 % over MCP once the stdio server gets its environment | ✅ |
 | 17 | [Containers, Kubernetes, CI/CD & Terraform](https://github.com/kavicka/17-containers-k8s-cicd) | Step 15 as qdrant + indexer job + api + web: onnxruntime (63 MB) instead of PyTorch (5.1 GB) with identical retrieval, compose + kind in GitHub Actions with a retrieval eval gate, Terraform platform layer; a rolling restart lost 3 / 819 requests until a preStop hook made it 0 / 864 | ✅ |
+| 19 | [Azure AI: same RAG on Azure](https://github.com/kavicka/19-azure-ai-rag) | Step 15 with search, embeddings and LLM switchable in `.env` between local (own BM25 + Qdrant, bge, qwen3:4b-instruct) and Azure (AI Search Free, gpt-4.1-mini, text-embedding-3-small), keyless via Entra ID, Terraform: both stacks 99.2 % correct with retrieval, Azure 1.0 s vs 3.8 s per answer for 0.41 USD per 1,000 answers; Azure AI Search = own engine with the same vectors (evidence@5 0.99 after rerank on both); found a 10 requests/min throttle that made Azure look 6× slower; whole step 0.47 USD | ✅ |
 | 20 | [GxP document migration & app retirement](https://github.com/kavicka/20-gxp-document-migration) | 294 legacy documents with 45 injected defects into a Vault-like DMS: lift-and-shift loads 40 defective documents and 0 % fully correct records, the validated pipeline quarantines 45 / 45 with a reason and rejects 0 clean ones; hash-chained audit trail, CTMS archive kept 25 years, 13 / 13 requirements verified | ✅ |
 | 21 | [RAG from scratch vs LangChain / LangGraph](https://github.com/kavicka/21-rag-langchain-vs-scratch) | Step 15 rebuilt with LangChain on the same 156 questions and CPU: configured like step 15 it matches (accuracy 0.984 vs 0.968, 245 vs 368 lines of code), with the tutorial defaults it drops to 0.714 (answer chunk in the top 5: 0.706 vs 0.968); a LangGraph grade → rewrite loop adds +31–42 % latency for 0–2 questions; +37 packages, ~7 ms orchestration per question, RAGAS judge vs rules κ 0.33, Phoenix traces | ✅ |
 
@@ -33,13 +34,12 @@ Each project README now starts with a plain-language explanation before the tech
 |---|---|---|---|
 | B | [Eval-driven RAG on Slovak insurance terms](https://github.com/kavicka/15-rag-evals-sk) | The original step 15: 117 checked questions on 20 public insurance terms, dev/test split, one change at a time. Accuracy 26.0 % LLM alone → 83.1 % with retrieval + reranker (MRR 0.511 → 0.776), refusal threshold takes answered unanswerable questions 2 → 0, judge calibrated at κ 0.80, error analysis of 24 answers, eval gate in CI | ✅ |
 
-### Planned: GenAI full-stack track (steps 18–19)
-The two remaining steps put the same app on AWS and Azure. Every secret (API keys, cloud credentials) is read from the environment, never committed.
+### Planned: GenAI full-stack track (step 18)
+The remaining step puts the same app on AWS. Every secret (API keys, cloud credentials) is read from the environment, never committed.
 
 | # | Project | What it will show | Status |
 |---|---|---|---|
 | 18 | AWS on the free plan | S3 → Lambda → index pipeline, API Gateway, DynamoDB, all in Terraform; keys in SSM Parameter Store, CI via OIDC (no long-lived keys), budget alarm | ⏳ planned |
-| 19 | [Azure AI: same RAG on Azure](https://github.com/kavicka/19-azure-ai-rag) | Step 15 with search, embeddings and LLM each switchable in `.env` between local (own BM25 + Qdrant, bge, Ollama) and Azure (AI Search Free, Azure OpenAI); keyless via Entra ID + RBAC, infrastructure in Terraform with plan tests; the full eval (141 + 156 questions) on both stacks: quality, latency and real cost per answer, on Azure for Students credit | 🔧 code + tests done, Azure runs pending |
 
 ## Roadmap
 1. **Setup & math** – environment, derivatives, linear algebra
